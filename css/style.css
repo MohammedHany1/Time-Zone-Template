@@ -84,11 +84,6 @@ header .container {
     justify-content: space-evenly;
     align-items: center;
 }
-@media (max-width: 558px) {
-    header .container{
-        width: 80%;
-    }
-}
 @media (max-width: 974px) {
     header .container{
         position: absolute;
@@ -102,6 +97,11 @@ header .container {
         padding: 10px;
         z-index: 1;
         row-gap: 5px;
+    }
+}
+@media (max-width: 558px) {
+    header .container{
+        width: 90%;
     }
 }
 header .container input[type="checkbox"]{
@@ -134,14 +134,15 @@ header .container .list {
 @media (max-width: 974px) {
     header .container .list{
         margin: 0;
-        transition: opacity 0.15s ease;
+        transition: opacity-background-color 0.15s ease;
         opacity: 0;
         height: 0;
         width: 0;
-        -webkit-transition: opacity 0.15s ease;
-        -moz-transition: opacity 0.15s ease;
-        -ms-transition: opacity 0.15s ease;
-        -o-transition: opacity 0.15s ease;
+        overflow: hidden;
+        -webkit-transition: opacity-background-color 0.15s ease;
+        -moz-transition: opacity-background-color 0.15s ease;
+        -ms-transition: opacity-background-color 0.15s ease;
+        -o-transition: opacity-background-color 0.15s ease;
 }
     header .container input[type="checkbox"]:checked ~ .list{
         opacity: 1;
@@ -249,15 +250,10 @@ header .container .list li .drop-down-menu {
     background: #fff;
     border-radius: 8px 8px 0 0;
     border-top: 2px solid var(--secondary-color);
-    transition: opacity 0.15s ease;
     opacity: 0;
     height: 0;
     width: 0;
     text-align: left;
-    -webkit-transition: opacity 0.15s ease;
-    -moz-transition: opacity 0.15s ease;
-    -ms-transition: opacity 0.15s ease;
-    -o-transition: opacity 0.15s ease;
 }
 header .container .list li .drop-down-menu::before {
     content: "";
@@ -311,12 +307,12 @@ header .icon-nav {
 @media (max-width: 558px) {
     header .icon-nav {
         position: absolute;
-        top: 135%;
+        top: 140%;
         left: 60%;
     }
 }
 header .icon-nav i {
-    margin-left: 10%;
+    padding: 10px 20px;
 }
 header .icon-nav i:hover {
     color: var(--secondary-color);
