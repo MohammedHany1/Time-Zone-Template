@@ -137,7 +137,8 @@ header .container .list {
         transition: opacity 0.15s ease;
         opacity: 0;
         height: 0;
-        -webkit-transition: opacity,height 0.15s ease;
+        width: 0;
+        -webkit-transition: opacity 0.15s ease;
         -moz-transition: opacity 0.15s ease;
         -ms-transition: opacity 0.15s ease;
         -o-transition: opacity 0.15s ease;
@@ -145,6 +146,7 @@ header .container .list {
     header .container input[type="checkbox"]:checked ~ .list{
         opacity: 1;
         height: auto;
+        width: 73%;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -247,14 +249,15 @@ header .container .list li .drop-down-menu {
     background: #fff;
     border-radius: 8px 8px 0 0;
     border-top: 2px solid var(--secondary-color);
-    transition: all 0.15s ease;
+    transition: opacity 0.15s ease;
     opacity: 0;
     height: 0;
+    width: 0;
     text-align: left;
-    -webkit-transition: all 0.15s ease;
-    -moz-transition: all 0.15s ease;
-    -ms-transition: all 0.15s ease;
-    -o-transition: all 0.15s ease;
+    -webkit-transition: opacity 0.15s ease;
+    -moz-transition: opacity 0.15s ease;
+    -ms-transition: opacity 0.15s ease;
+    -o-transition: opacity 0.15s ease;
 }
 header .container .list li .drop-down-menu::before {
     content: "";
@@ -274,6 +277,7 @@ header .container .list li .drop-down-menu li {
         position: relative;
         background-color: transparent;
         padding: 0 20px;
+        overflow: hidden;
     }
     header .container .list li .drop-down-menu::before {
         display: none;
@@ -290,6 +294,7 @@ header .container .list li input[type="checkbox"] {
 }
 header .container .list li input[type="checkbox"]:checked ~ .drop-down-menu{
     top: 100%;
+    width: auto;
     opacity: 1;
     height: auto;
 }
