@@ -41,15 +41,14 @@ a {
     }
 }
 /* End Global Rules */
-/* Start Global Components */
-/* End Global Components */
+/* Start Components */
+/* End Components */
 /* Start Header */
 header {
     background-color: white;
     display: flex;
     justify-content: space-between;
     position: relative;
-    padding: 35px 0;
 }
 header::after {
     content: "HOT";
@@ -79,7 +78,7 @@ header .logo {
     align-self: center;
 }
 header .container {
-    width: 70%;
+    width: 50%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -125,8 +124,9 @@ header .container > label {
     }
 }
 header .container .list {
-    width: 73%;
-    margin-left: 17%;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
     display: flex;
     text-align: center;
     justify-content: space-between;
@@ -155,13 +155,17 @@ header .container .list {
     }
 }
 header .container .list > li {
-    width: calc( 93% / 7);
+    width: 100%;
+    padding: 35px 0;                                              
+}
+header .container .list > li:hover {
+    color: var(--secondary-color);
 }
 header .container .list li .cont:hover {
     color: var(--secondary-color);
 }
-header .container .list li label {
-    cursor: pointer;
+header .container .list > li > .cont a {
+    padding: 35px 0;                                               
 }
 @media (max-width: 974px) {
     header .container .list li {
@@ -169,12 +173,20 @@ header .container .list li label {
         padding: 0px 10px;
         color: white;
     }
-    header .container .list li label{
+    header .container .list > li:hover {
+        color: white;
+    }
+    header .container .list li .cont a {
         width: 100%;
         position: relative;
+        padding: 0;       
     }
-    header .container .list li .cont label::before {
+    header .container .list li .cont a label {
+        cursor: pointer;
+    }
+    header .container .list li .label-container a::before {
         content: "+";
+        color: white;
         position: absolute;
         top: 50%;
         font-size: smaller;
@@ -185,11 +197,12 @@ header .container .list li label {
         -ms-transform: translate(0, -50%);
         -o-transform: translate(0, -50%);
     }
-    header .container .list li input[type="checkbox"]:checked ~ .cont label::before {
+    header .container .list li input[type="checkbox"]:checked ~ .cont a::before {
         display: none;
     }
-    header .container .list li .cont label::after {
+    header .container .list li .label-container a::after {
         content: "-";
+        color: white;
         position: absolute;
         top: 50%;
         font-size: smaller;
@@ -201,7 +214,7 @@ header .container .list li label {
         -o-transform: translate(0, -50%);
         display: none;
     }
-    header .container .list li input[type="checkbox"]:checked ~ .cont label::after {
+    header .container .list li input[type="checkbox"]:checked ~ .cont a::after {
         display: block;
     }
     header .container .list li .cont {
@@ -217,13 +230,15 @@ header .container .list li label {
         -moz-transition: all 0.3s;
         -ms-transition: all 0.3s;
         -o-transition: all 0.3s;
-}
+    }
     header .container .list li .cont:hover {
         background-color: #cccccc;
+    }
+    header .container .list li .cont:hover a {
         color: #4c4c4c;
     }
-    header .container .list li a {
-        width: 100%;
+    header .container .list li .cont:hover a label{
+        color: white;
     }
     header .container .list li a:hover {
         background-color: #cccccc;
@@ -233,7 +248,7 @@ header .container .list li label {
         -ms-border-radius: 5px;
         -o-border-radius: 5px;
     }
-    header .container .list li label:hover {
+    header .container .list li .cont:hover {
         background-color: #cccccc;
         color: white;
         border-radius: 5px;
@@ -254,6 +269,7 @@ header .container .list li .drop-down-menu {
     height: 0;
     width: 0;
     text-align: left;
+    display: none;                                                  
 }
 header .container .list li .drop-down-menu::before {
     content: "";
@@ -266,6 +282,21 @@ header .container .list li .drop-down-menu li {
     margin-top: 15px;
     display: block;
 }
+header .container .list li:hover .drop-down-menu {
+    color: var(--main-color);
+}
+header .container .list li input[type="checkbox"] {
+    display: none;
+}
+@media (min-width: 975px) {
+    header .container .list li:hover .drop-down-menu{
+    top: 100%;
+    display: block;                                                    
+    width: auto;
+    opacity: 1;
+    height: auto;
+    }
+}
 @media (max-width: 974px) {
     header .container .list li .drop-down-menu{
         border: none;
@@ -274,6 +305,7 @@ header .container .list li .drop-down-menu li {
         background-color: transparent;
         padding: 0 20px;
         overflow: hidden;
+        display: none;
     }
     header .container .list li .drop-down-menu::before {
         display: none;
@@ -281,21 +313,19 @@ header .container .list li .drop-down-menu li {
     header .container .list li .drop-down-menu li {
         margin-top: 0;
     }
-}
-header .container .list li:hover .drop-down-menu {
-    color: var(--main-color);
-}
-header .container .list li input[type="checkbox"] {
-    display: none;
-}
-header .container .list li input[type="checkbox"]:checked ~ .drop-down-menu{
-    top: 100%;
-    width: auto;
-    opacity: 1;
-    height: auto;
+    header .container .list li input[type="checkbox"]:checked ~ .drop-down-menu{
+        top: 100%;
+        display: block;                                                     
+        width: auto;
+        opacity: 1;
+        height: auto;
+    }
 }
 header .icon-nav {
-    width: 35%;
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     text-align: right;
     margin-right: 40px;
 }
@@ -310,11 +340,12 @@ header .icon-nav i {
 @media (max-width: 558px) {
     header .icon-nav {
         position: absolute;
-        top: 140%;
-        left: 60%;
+        top: 255%;
+        right: 5%;
+        margin: 0;
     }
     header .icon-nav i {
-    padding: 5px 7px;
+        padding: 5px 7px;
     }
 }
 header .icon-nav i:hover {
